@@ -216,10 +216,20 @@ body{
   margin-bottom:50px;
 }
 
+/* =====================
+   PLACES SECTION
+===================== */
 .place-card{
   display:flex;
   gap:35px;
   margin-bottom:60px;
+
+  /* SCROLL ANIMATION */
+  opacity:0;
+  transform:translateY(50px);
+  animation:fadeUp 1.2s ease forwards;
+  animation-timeline:view();
+  animation-range:entry 20% cover 40%;
 }
 
 .place-card img{
@@ -312,5 +322,96 @@ body{
 
   .place-content p{
     font-size:14px;
+  }
+}
+/* =====================
+   PAGE LOAD ANIMATIONS
+===================== */
+.animate{
+  opacity:0;
+  animation-fill-mode:forwards;
+}
+
+/* Fade Up */
+.fade-up{
+  animation:fadeUp 1.2s ease forwards;
+}
+
+/* Fade Down */
+.fade-down{
+  animation:fadeDown 1.2s ease forwards;
+}
+
+/* Delay helpers */
+.delay-1{ animation-delay:.4s; }
+.delay-2{ animation-delay:.7s; }
+.delay-3{ animation-delay:1s; }
+
+/* Keyframes */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeDown{
+  from{
+    opacity:0;
+    transform:translateY(-30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* =====================
+   CLEAN 3D TEXT ANIMATION (NO BREAK)
+===================== */
+
+.hero-title-3d{
+  font-family:'Playfair Display', serif;
+  font-size:56px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  white-space:nowrap;          /* ❗ BREAK WENNE NA */
+  perspective:1000px;
+
+  opacity:0;
+  transform:
+    translateY(40px)
+    rotateX(25deg);
+
+  animation:text3dSlide 1.2s ease forwards;
+
+  /* REAL 3D DEPTH */
+  text-shadow:
+    0 2px 0 #bbb,
+    0 4px 0 #999,
+    0 6px 0 #777,
+    0 10px 20px rgba(0,0,0,.65);
+}
+
+@keyframes text3dSlide{
+  to{
+    opacity:1;
+    transform:
+      translateY(0)
+      rotateX(0deg);
+  }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-title-3d{
+    font-size:34px;
+    letter-spacing:2px;
+    text-align:center;
+    white-space:normal;   /* mobile eke line break allow */
   }
 }

@@ -11,12 +11,23 @@
   box-sizing:border-box;
   font-family:"Segoe UI", sans-serif;
 }
-
 body{
-  background:#cfcfcf;
+  position:relative;
   color:#333;
 }
 
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("../bg.jpg") no-repeat center center;
+  background-size:cover;
+  z-index:-1;
+  filter:brightness(0.85);
+}
 /* ================= HERO ================= */
 .hero{
   min-height:45vh;              /* reduced space */
@@ -227,21 +238,22 @@ body{
 
   <!-- TOPIC 1 -->
   <details class="accordion">
-    <summary><span>01</span><B>GALLE FORT </B><br><h5>details</h5></summary>
+    <summary><span>01</span><B>ANURADHAPURA & POLONNARUWA </B><br><h5>details</h5></summary>
 
     <div class="sub">
       <div class="sub-box">
-        <img src="gall fort.jpg">
+        <img src="Anuradhapura.jpg">
         <div class="text">
-          <h3>Main Destination</h3>
-          <p>The main destination of this journey is Galle Fort, a historic coastal fortress renowned for its rich heritage, colonial architecture, and stunning ocean views.</p>
+          <h3>Main Destination</h3><br>
+          <p><h4>anuradapura</h4></p>
+          <p>“The tour starts with Anuradhapura as the primary destination, followed by a visit to Polonnaruwa.”</p>
         </div>
       </div>
     </div>
 
     <div class="sub light">
       <div class="sub-box reverse">
-        <img src="road.jpg">
+        <img src="jungle.jpg">
         <div class="text">
           <h3>Journey Route</h3>
           <p>The roads are well maintained, allowing you to travel comfortably in our air-conditioned vehicle.</p>
@@ -251,36 +263,32 @@ body{
 
     <div class="sub">
       <div class="sub-box">
-        <img src="safaryandkesbo.jpg">
+        <img src="Atamasthana.jpg">
         <div class="text">
           <h3>Stop Places</h3>
-          <ul>
-            <li>Sea Turtle Hatchery (Hikkaduwa / Kosgoda)</li>
-            <li>River Safari (Madu Ganga)</li>
-          </ul><p>“Throughout the tour, you are free to visit places like these based on your interests.”</p>
+          <p>“Our main sightseeing locations include the Atamasthana—eight sacred places of immense ancient and historical value in Sri Lanka.”</p>
+
         </div>
       </div>
     </div>
 
     <div class="sub light">
       <div class="sub-box reverse">
-        <img src="cafee.jpg">
+        <img src="cafee2.jpg">
         <div class="text">
           <h3>Food & Activities</h3>
-          <ul>
-            <li>Cafe 44 / Pedlar’s Inn / Isle of Gelato</li>
-            <li>Rooftop cafes</li>
-          </ul><p>“Accompanied by our professional guide, guests may stop at selected locations like these for meals, refreshments, and relaxation breaks throughout the tour. These are provided as examples only.”</p>
+<p>“Accompanied by our professional guide, guests may stop at selected locations like these for meals, refreshments, and relaxation breaks throughout the tour. These are provided as examples only.”</p>
         </div>
       </div>
     </div>
 
     <div class="sub">
       <div class="sub-box">
-        <img src="hotel.jpg">
+        <img src="2daysafari.jpg">
         <div class="text">
-          <h3>Final Experience</h3>
-          <p>Guests will be safely dropped off at either our reserved hotel or their preferred hotel.</p>
+          <h3>Final Experience</h3><ul><li>
+          <p>“As the final experience of the tour, guests will take part in a wildlife safari at Minneriya and Kaudulla National Parks.”</p></li>
+         <li> <p>Guests will be safely dropped off at either our reserved hotel or their preferred hotel.</p></li></ul>
         </div>
       </div>
     </div>
@@ -289,7 +297,7 @@ body{
 
   <!-- TOPIC 2 -->
   <details class="accordion">
-    <summary><span>01</span>Galle FORT TOUR<br><h5>details</h5></summary>
+    <summary><span>02</span>NUWARA,PINNAWALA & PERADENIYA BOTNICAL GARDENS<br><h5>details</h5></summary>
 
     <div class="sub">
       <div class="sub-box">

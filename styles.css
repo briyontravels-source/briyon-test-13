@@ -72,16 +72,34 @@ body{
 /* LOGO TEXT */
 .logo{
   font-size:34px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style:oblique;
   font-weight:800;
   letter-spacing:1.5px;
+
   opacity:0;
   animation:textReveal 1.2s ease forwards;
   animation-delay:.3s;
 }
 
-.logo span{
-  color:#8c06a0;
+/* Briyon */
+.logo-main{
+  color:#8c06a0;   /* purple */
+  text-shadow:
+    1px 1px 0 #ffffff,
+    2px 2px 0 #bbbbbb,
+    3px 3px 8px rgba(0,0,0,.45);
 }
+
+/* Travels */
+.logo-sub{
+  color:#ffffff;   /* white */
+  margin-left:6px;
+  text-shadow:
+    1px 1px 0 #560971,
+    2px 2px 0 #8c06a0,
+    3px 3px 8px rgba(0,0,0,.45);
+    }
 
 /* =====================
    NAV LINKS
@@ -112,14 +130,14 @@ body{
   font-weight:700;
   letter-spacing:1px;
   color:#fff;
-  background:#045274;
+  background:linear-gradient(135deg,#000000,#8c06a0);
   border:1.6px solid rgba(255,255,255,.4);
   box-shadow:0 6px 16px rgba(0,0,0,.35);
   transition:.3s;
 }
 
 .nav-links a:hover{
-  background:#0984f8;
+  background:#fbfbfb;
   color:#000;
   transform:translateY(-3px);
 }
@@ -246,8 +264,8 @@ body{
 }
 
 .social-icons img{
-  width:40px;
-  height:40px;
+  width:35px;
+  height:35px;
   border-radius:50%;
   box-shadow:0 6px 20px rgba(0,0,0,.4);
   transition:.3s;

@@ -29,9 +29,8 @@ body{
 .hero{
   min-height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
-    url("bg.jpg")
-    center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("bg.jpg") center/cover no-repeat;
   position:relative;
   padding-bottom:160px;
 }
@@ -47,6 +46,7 @@ body{
   flex-wrap:wrap;
 }
 
+/* logo text */
 .logo{
   font-size:34px;
   font-weight:800;
@@ -56,12 +56,19 @@ body{
   color:#ee5095;
 }
 
-.logo-img{
-  max-width:120px;
+/* logo image wobble */
+.wobble-logo{
+  width:160px;
+  animation:logoWobble 5s ease-in-out infinite;
+  transform-origin:center;
+}
+
+.wobble-logo:hover{
+  animation-play-state:paused;
 }
 
 /* =====================
-   NAV LINKS
+   NAV LINKS (ANIMATE)
 ===================== */
 .nav-links{
   list-style:none;
@@ -70,6 +77,16 @@ body{
   flex-wrap:wrap;
   justify-content:center;
 }
+
+.nav-links li{
+  opacity:0;
+  animation:navFade 1s ease forwards;
+}
+
+.nav-links li:nth-child(1){animation-delay:.4s;}
+.nav-links li:nth-child(2){animation-delay:.6s;}
+.nav-links li:nth-child(3){animation-delay:.8s;}
+.nav-links li:nth-child(4){animation-delay:1s;}
 
 .nav-links a{
   padding:8px 16px;
@@ -82,11 +99,13 @@ body{
   background:#a94986;
   border:1.6px solid rgba(255,255,255,.4);
   box-shadow:0 6px 16px rgba(0,0,0,.35);
+  transition:.3s;
 }
 
 .nav-links a:hover{
   background:#ffb703;
   color:#000;
+  transform:translateY(-3px);
 }
 
 /* =====================
@@ -97,26 +116,32 @@ body{
   padding:90px 6% 0;
 }
 
-/* 🔥 MAIN TITLE */
-.hero-content h1{
+/* MAIN TITLE – SAME FONT ALL DEVICES */
+.hero-title{
   font-family:'Playfair Display', serif;
-  font-size:52px;              /* desktop */
-  font-weight:700;
+  font-size:52px;
+  font-weight:800;
   text-transform:uppercase;
   letter-spacing:2px;
   line-height:1.15;
   margin-bottom:18px;
+  opacity:0;
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:.4s;
 }
 
-/* sub text */
+/* subtitle */
 .hero-content p{
   font-size:16px;
   color:#ddd;
   margin-bottom:30px;
+  opacity:0;
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:.7s;
 }
 
 /* =====================
-   BUTTONS
+   HERO BUTTONS (ANIMATE)
 ===================== */
 .hero-buttons{
   display:flex;
@@ -131,7 +156,12 @@ body{
   font-size:13px;
   font-weight:700;
   text-transform:uppercase;
+  opacity:0;
+  animation:buttonPop .9s ease forwards;
 }
+
+.hero-buttons a:nth-child(1){animation-delay:1s;}
+.hero-buttons a:nth-child(2){animation-delay:1.2s;}
 
 .btn-primary{
   background:linear-gradient(135deg,#d6ba90,#ff2273);
@@ -143,6 +173,10 @@ body{
   color:#fff;
 }
 
+.hero-buttons a:hover{
+  transform:translateY(-4px) scale(1.03);
+}
+
 /* =====================
    SCROLL INDICATOR
 ===================== */
@@ -152,37 +186,13 @@ body{
   left:50%;
   transform:translateX(-50%);
   text-align:center;
-}
-
-.scroll-indicator span{
-  font-size:12px;
-  letter-spacing:2px;
-}
-
-.mouse{
-  width:26px;
-  height:44px;
-  border:2px solid #fff;
-  border-radius:20px;
-  margin:8px auto 0;
-}
-
-.wheel{
-  width:6px;
-  height:10px;
-  background:#fff;
-  border-radius:3px;
-  margin:6px auto;
-  animation:wheel 1.5s infinite;
-}
-
-@keyframes wheel{
-  from{opacity:1;transform:translateY(0);}
-  to{opacity:0;transform:translateY(14px);}
+  opacity:0;
+  animation:fadeUp 1s ease forwards;
+  animation-delay:1.6s;
 }
 
 /* =====================
-   SOCIAL ICONS
+   SOCIAL ICONS (WHATSAPP / FB / INSTA)
 ===================== */
 .social-icons{
   position:fixed;
@@ -199,6 +209,11 @@ body{
   height:40px;
   border-radius:50%;
   box-shadow:0 6px 20px rgba(0,0,0,.4);
+  transition:.3s;
+}
+
+.social-icons img:hover{
+  transform:scale(1.12);
 }
 
 /* =====================
@@ -217,14 +232,12 @@ body{
 }
 
 /* =====================
-   PLACES SECTION
+   PLACE CARD (SCROLL ANIMATE)
 ===================== */
 .place-card{
   display:flex;
   gap:35px;
   margin-bottom:60px;
-
-  /* SCROLL ANIMATION */
   opacity:0;
   transform:translateY(50px);
   animation:fadeUp 1.2s ease forwards;
@@ -255,7 +268,38 @@ body{
 }
 
 /* =====================
-   RESPONSIVE – MOBILE
+   KEYFRAMES
+===================== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px) scale(.96);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes navFade{
+  from{opacity:0;transform:translateY(-15px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes buttonPop{
+  from{opacity:0;transform:scale(.7);}
+  to{opacity:1;transform:scale(1);}
+}
+
+@keyframes logoWobble{
+  0%{transform:rotate(0) scale(1);}
+  25%{transform:rotate(-4deg) scale(1.03);}
+  50%{transform:rotate(4deg) scale(1.03);}
+  75%{transform:rotate(-2deg) scale(1.01);}
+  100%{transform:rotate(0) scale(1);}
+}
+
+/* =====================
+   RESPONSIVE
 ===================== */
 @media(max-width:900px){
   .place-card{
@@ -268,21 +312,10 @@ body{
 }
 
 @media(max-width:768px){
-
   .navbar{
     flex-direction:column;
-    align-items:center;
     gap:14px;
     text-align:center;
-  }
-
-  .logo{
-    font-size:26px;
-  }
-
-  .logo-img{
-    display:block;
-    margin:0 auto;
   }
 
   .hero-content{
@@ -290,15 +323,9 @@ body{
     padding-top:70px;
   }
 
-  /* 🔥 MOBILE TITLE – LOKU + BOLD */
-  .hero-content h1{
+  .hero-title{
     font-size:34px;
-    font-weight:800;
     letter-spacing:2.6px;
-  }
-
-  .hero-content p{
-    font-size:14px;
   }
 
   .hero-buttons a{
@@ -307,7 +334,7 @@ body{
 }
 
 @media(max-width:480px){
-  .hero-content h1{
+  .hero-title{
     font-size:28px;
     letter-spacing:2.2px;
   }
@@ -324,95 +351,3 @@ body{
     font-size:14px;
   }
 }
-/* =====================
-   PAGE LOAD ANIMATIONS
-===================== */
-.animate{
-  opacity:0;
-  animation-fill-mode:forwards;
-}
-
-/* Fade Up */
-.fade-up{
-  animation:fadeUp 1.2s ease forwards;
-}
-
-/* Fade Down */
-.fade-down{
-  animation:fadeDown 1.2s ease forwards;
-}
-
-/* Delay helpers */
-.delay-1{ animation-delay:.4s; }
-.delay-2{ animation-delay:.7s; }
-.delay-3{ animation-delay:1s; }
-
-/* Keyframes */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(40px) scale(.96);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-@keyframes fadeDown{
-  from{
-    opacity:0;
-    transform:translateY(-30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-/* =====================
-   CLEAN 3D TEXT ANIMATION (NO BREAK)
-===================== */
-
-.hero-title-3d{
-  font-family:'Playfair Display', serif;
-  font-size:56px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  white-space:nowrap;          /* ❗ BREAK WENNE NA */
-  perspective:1000px;
-
-  opacity:0;
-  transform:
-    translateY(40px)
-    rotateX(25deg);
-
-  animation:text3dSlide 1.2s ease forwards;
-
-  /* REAL 3D DEPTH */
-  text-shadow:
-    0 2px 0 #bbb,
-    0 4px 0 #999,
-    0 6px 0 #777,
-    0 10px 20px rgba(0,0,0,.65);
-}
-
-@keyframes text3dSlide{
-  to{
-    opacity:1;
-    transform:
-      translateY(0)
-      rotateX(0deg);
-  }
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero-title-3d{
-    font-size:34px;
-    letter-spacing:2px;
-    text-align:center;
-    white-space:normal;   /* mobile eke line break allow */
-  }
-}
-
